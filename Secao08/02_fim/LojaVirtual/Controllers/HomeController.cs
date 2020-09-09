@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using LojaVirtual.Libraries.Email;
 using LojaVirtual.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
+using System.Text;
 
 namespace LojaVirtual.Controllers
 {
@@ -22,15 +24,46 @@ namespace LojaVirtual.Controllers
 
         public IActionResult ContatoAcao()
         {
-            Contato contato = new Contato();
-            contato.Nome = HttpContext.Request.Form["nome"];
-            contato.Email = HttpContext.Request.Form["email"];
-            contato.Texto = HttpContext.Request.Form["texto"];
 
-            ContatoEmail.EnviarContatoPorEmail(contato);
-            return new ContentResult() {Content= string.Format("Dados recebidos com sucesso! <br/> nome:{0} <br/> Email:{1} <br/> Texto:{2}", contato.Nome,contato.Email,contato.Texto), ContentType = "text/html" };
+            try
+            {
+                Contato contato = new Contato();
+                contato.Nome = HttpContext.Request.Form["nome"];
+                contato.Email = HttpContext.Request.Form["email"];
+                contato.Texto = HttpContext.Request.Form["texto"];
 
-           
+                var listaMensagens = new List<ValidationResult>();
+                var contexto = new ValidationContext(contato);
+                bool isValid = Validator.TryValidateObject(contato, contexto, listaMensagens, true);
+
+                if (isValid)
+                {
+                    ContatoEmail.EnviarContatoPorEmail(contato);
+                    ViewData["MSG_S"] = "Mensagem de Contato enviada com Sucesso!";
+                }
+                else
+                {
+                    StringBuilder sb = new StringBuilder();
+                    foreach (var texto in listaMensagens)
+                        {
+                        sb.Append(texto.ErrorMessage+ "<br />");
+                    }
+
+                    ViewData["MSG_E"] = sb.ToString();
+                    ViewData["CONTATO"] = contato;
+                }
+               
+            }
+            catch(Exception)
+            {
+                ViewData["MSG_E"] = "Ops! Tivemos um erro. Tente mais tarde novamente!";
+
+                //TODO - IMPLEMENTAR LOG
+            }
+
+
+            
+            return View("Contato");
         
         }
 

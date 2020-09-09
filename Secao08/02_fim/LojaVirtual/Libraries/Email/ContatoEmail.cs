@@ -15,7 +15,7 @@ namespace LojaVirtual.Libraries.Email
         {
             SmtpClient smtp = new SmtpClient("smtp.live.com", 25);
             smtp.UseDefaultCredentials = false;
-            smtp.Credentials = new NetworkCredential("jjoaojose@hotmail.com","Familia04");
+            smtp.Credentials = new NetworkCredential("jjoaojose@hotmail.com","");
             smtp.EnableSsl = true;
 
             string corpoMsg = string.Format("<h2>Loja Virtual </h2>"+

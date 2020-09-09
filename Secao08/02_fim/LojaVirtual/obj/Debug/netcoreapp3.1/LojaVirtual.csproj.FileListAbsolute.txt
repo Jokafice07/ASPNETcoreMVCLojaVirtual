@@ -140,3 +140,5 @@ D:\jjoao\Documents\Material_Estudo\ASP_NET\GITHub\ASPNETcoreMVCLojaVirtual\Secao
 D:\jjoao\Documents\Material_Estudo\ASP_NET\GITHub\ASPNETcoreMVCLojaVirtual\Secao08\02_fim\LojaVirtual\obj\Debug\netcoreapp3.1\Razor\Views\Home\Login.cshtml.g.cs
 D:\jjoao\Documents\Material_Estudo\ASP_NET\GITHub\ASPNETcoreMVCLojaVirtual\Secao08\02_fim\LojaVirtual\obj\Debug\netcoreapp3.1\Razor\Views\Home\CadastroCliente.cshtml.g.cs
 D:\jjoao\Documents\Material_Estudo\ASP_NET\GITHub\ASPNETcoreMVCLojaVirtual\Secao08\02_fim\LojaVirtual\obj\Debug\netcoreapp3.1\Razor\Views\Home\CarrinhoCompras.cshtml.g.cs
+D:\jjoao\Documents\Material_Estudo\ASP_NET\GITHub\ASPNETcoreMVCLojaVirtual\Secao08\02_fim\LojaVirtual\obj\Debug\netcoreapp3.1\LojaVirtual.Libraries.Lang.Mensagem.resources
+D:\jjoao\Documents\Material_Estudo\ASP_NET\GITHub\ASPNETcoreMVCLojaVirtual\Secao08\02_fim\LojaVirtual\obj\Debug\netcoreapp3.1\LojaVirtual.csproj.GenerateResource.cache
